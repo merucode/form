@@ -1,0 +1,15 @@
+version: '3.7'
+  
+services:
+  jupyter:
+    container_name: jupyter
+    build:
+      context: ./jupyter/
+      dockerfile: Dockerfile
+    volumes:
+      - ${PWD}/jupyter:/usr/src/app
+    env_file:
+      - ./.env
+    ports:
+      - 8888:8888
+    user: root
